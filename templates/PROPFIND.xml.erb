@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<D:multistatus xmlns:D="DAV:">
+  <D:response>
+   <D:href><%= locals[:path] %></D:href>
+   <D:propstat>
+     <D:prop>
+       <% (locals[:properties] || {}).each do |key, value| %>
+         <D:<%= key %>><%= value %></D:<%= key %>>
+       <% end %>
+    </D:prop>
+    <D:status><%=locals[:status]%></D:status>
+   </D:propstat>
+  </D:response>
+</D:multistatus>
